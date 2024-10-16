@@ -12,131 +12,22 @@
     <div class="container">
         @include('site.layouts.breadcrumb')
         <div class="doctors-grid">
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
+            @foreach ($doctors as $doctor)
+                <div class="card p-2" style="width: 18rem;">
+                    <img src="{{ FileHelper::get_file_url($doctor->doctor_image) }}" class="card-img-top rounded-circle card-image-circle"
+                        alt="major">
+                    <div class="card-body d-flex flex-column gap-1 justify-content-center">
+                        <h4 class="card-title fw-bold text-center">
+                            {{ $doctor->name }}
+                        </h4>
+                        <h6 class="card-title fw-bold text-center">
+                            {{ $doctor->major->title }}
+                        </h6>
+                        <a href="{{ route('appointement') }}" class="btn btn-outline-primary card-button">Book an
+                            appointment</a>
+                    </div>
                 </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book
-                        an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book
-                        an
-                        appointment</a>
-                </div>
-            </div>
-            <div class="card p-2" style="width: 18rem;">
-                <img src="{{ asset('site/images/major.jpg') }}" class="card-img-top rounded-circle card-image-circle"
-                    alt="major">
-                <div class="card-body d-flex flex-column gap-1 justify-content-center">
-                    <h4 class="card-title fw-bold text-center">Doctor Name</h4>
-                    <h6 class="card-title fw-bold text-center">Major</h6>
-                    <a href="{{ route('appointement') }}" doctor.html" class="btn btn-outline-primary card-button">Book
-                        an
-                        appointment</a>
-                </div>
-            </div>
-
-
+            @endforeach
         </div>
         <nav class="mt-5" aria-label="navigation">
             <ul class="pagination justify-content-center">

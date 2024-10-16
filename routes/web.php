@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\site\DoctorController;
+use App\Http\Controllers\site\MajorController;
+use App\Http\Controllers\site\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,21 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('site.pages.home');
-})->name('home');
 
-Route::get('home', function () {
-    return view('site.pages.home');
-})->name('home');
+Route::get('/', HomeController::class)->name('home.index');
 
-Route::get('majors', function () {
-    return view('site.pages.majors');
-})->name('major');
+Route::get('home', HomeController::class)->name('home.index');
 
-Route::get('doctors', function () {
-    return view('site.pages.doctors');
-})->name('doctor');
+Route::get('majors', MajorController::class)->name('major');
+
+Route::get('doctors', DoctorController::class)->name('doctor');
+
 
 Route::get('contact-us', function () {
     return view('site.pages.contact');
@@ -48,3 +45,7 @@ Route::get('register', function () {
 Route::get('login', function () {
     return view('site.pages.login');
 })->name('login');
+
+
+// admin web links
+require_once 'admin.php';
