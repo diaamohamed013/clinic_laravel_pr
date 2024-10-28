@@ -24,11 +24,13 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('categories',CategoryController::class);
-Route::apiResource('majors', MajorController::class);
-Route::apiResource('doctors', DoctorController::class);
-Route::apiResource('messages', ContactController::class);
-Route::apiResource('users', UserController::class);
+Route::middleware("auth:api")->group(function(){
+    Route::apiResource('categories',CategoryController::class);
+    Route::apiResource('majors', MajorController::class);
+    Route::apiResource('doctors', DoctorController::class);
+    Route::apiResource('messages', ContactController::class);
+    Route::apiResource('users', UserController::class);
+});
 
 Route::middleware(['api'])->group(function() {
     Route::post('/login', [AuthController::class, 'login']);
