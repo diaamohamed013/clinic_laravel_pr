@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\admin\MajorRequest;
 use App\Models\Major;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class MajorController extends Controller
 {
@@ -14,6 +15,8 @@ class MajorController extends Controller
      */
     public function index()
     {
+        // abort_if(Gate::denies('isAdmin'),403);
+        Gate::authorize('isAdmin');
         $majors = Major::orderBy('id', 'desc')->get();
         return view('admin.pages.majors.index', compact('majors'));
     }
@@ -38,7 +41,7 @@ class MajorController extends Controller
             $data['image'] = 'storage/' . $filename;
         }
         Major::create($data);
-        return redirect()->route('admin.majors.index');
+        return redirect()->route('admin.majors.index')->with('success', "Major has been created successfully");
     }
 
     /**
@@ -69,7 +72,7 @@ class MajorController extends Controller
         if (file_exists(public_path($image->image))) {
             unlink(public_path($image->image));
         }
-        
+
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $filename = $file->storeAs('majors', time() . '.' . $file->getClientOriginalExtension(), 'public');
@@ -77,7 +80,7 @@ class MajorController extends Controller
         }
 
         $major->update($data);
-        return redirect()->route('admin.majors.index', compact('major'));
+        return redirect()->route('admin.majors.index', compact('major'))->with('success', "Major has been updated successfully");
     }
 
     /**
@@ -90,6 +93,6 @@ class MajorController extends Controller
             unlink(public_path($image->image));
         }
         $major->delete();
-        return redirect()->route('admin.majors.index');
+        return redirect()->route('admin.majors.index')->with('success', "Major has been deleted successfully");
     }
 }

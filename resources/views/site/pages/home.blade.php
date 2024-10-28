@@ -35,7 +35,7 @@
                         class="card-img-top rounded-circle card-image-circle" alt="{{ $major->title }}">
                     <div class="card-body d-flex flex-column gap-1 justify-content-center">
                         <h4 class="card-title fw-bold text-center">{{ $major->title }}</h4>
-                        <a href="{{ route('doctor') }}" class="btn btn-outline-primary card-button">Browse Doctors</a>
+                        <a href="{{ route('site.doctors') }}" class="btn btn-outline-primary card-button">Browse Doctors</a>
                     </div>
                 </div>
             @endforeach
@@ -54,7 +54,8 @@
                                     <h6 class="card-title fw-bold text-center">
                                         {{ $doctor->major->title ?? 'No Major' }}
                                     </h6>
-                                    <a href="{{ route('appointement') }}" class="btn btn-outline-primary card-button">Book
+                                    <a href="{{ route('site.appointement',$doctor->id) }}"
+                                        class="btn btn-outline-primary card-button">Book
                                         an
                                         appointment</a>
                                 </div>

@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\site\AppointementController;
+use App\Http\Controllers\site\auth\LoginController;
+use App\Http\Controllers\site\auth\LogoutController;
+use App\Http\Controllers\site\auth\RegisterController;
+use App\Http\Controllers\site\ContactController;
 use App\Http\Controllers\site\DoctorController;
+use App\Http\Controllers\site\HistoryController;
 use App\Http\Controllers\site\MajorController;
 use App\Http\Controllers\site\HomeController;
+use App\Http\Controllers\site\PatientController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,34 +24,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', HomeController::class)->name('home.index');
+Route::as('site.')->group(function(){
 
-Route::get('home', HomeController::class)->name('home.index');
+    Route::middleware('auth')->group(function(){
+        Route::post('logout', LogoutController::class)->name('logout');
+    });
+    Route::get('/', HomeController::class)->name('home');
+    Route::get('home', HomeController::class)->name('home');
+    Route::get('history', HistoryController::class)->name('history');
+    Route::get('majors', MajorController::class)->name('majors');
+    Route::get('doctors', DoctorController::class)->name('doctors');
+    Route::get('appointement/{id}', [PatientController::class,'index'])->name('appointement');
+    Route::post('appointement/{id}', [PatientController::class, 'store'])->name('appointement.store');
 
-Route::get('majors', MajorController::class)->name('major');
+    Route::get('contact-us', [ContactController::class, 'show'])->name('contact.show');
+    Route::post('contact-us', [ContactController::class, 'contactUs'])->name('contact.store');
+    Route::get('login',[LoginController::class,'show'] )->name('login.show');
+    Route::get('register', [RegisterController::class, 'show'])->name('register.show');
+    Route::post('register', [RegisterController::class, 'register'])->name('register.store');
+});
 
-Route::get('doctors', DoctorController::class)->name('doctor');
-
-
-Route::get('contact-us', function () {
-    return view('site.pages.contact');
-})->name('contact');
-
-Route::get('history', function () {
-    return view('site.pages.history');
-})->name('history');
-
-Route::get('make-appointement', function () {
-    return view('site.pages.appointement');
-})->name('appointement');
-
-Route::get('register', function () {
-    return view('site.pages.register');
-})->name('register');
-
-Route::get('login', function () {
-    return view('site.pages.login');
-})->name('login');
 
 
 // admin web links

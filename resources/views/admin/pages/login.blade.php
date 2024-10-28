@@ -5,7 +5,7 @@
 
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
-            <a href="{{ route('home.index') }}" class="h1">Clinic</a>
+            <a href="{{ route('site.home') }}" class="h1">Clinic</a>
         </div>
         <div class="card-body">
             <p class="login-box-msg">Sign in to start your session</p>

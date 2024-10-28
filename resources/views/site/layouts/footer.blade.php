@@ -14,12 +14,12 @@
             <div class="col-sm order-sm-2">
                 <h1 class="h1">Links</h1>
                 <div class="links d-flex gap-2 flex-wrap">
-                    <a href="{{route('home.index')}}" class="link text-white">Home</a>
-                    <a href="{{route('major')}}" class="link text-white">Majors</a>
-                    <a href="{{route('doctor')}}" class="link text-white">Doctors</a>
-                    <a href="{{route('login')}}" class="link text-white">Login</a>
-                    <a href="{{route('register')}}" class="link text-white">Register</a>
-                    <a href="{{route('contact')}}" class="link text-white">Contact</a>
+                    <a href="{{ route('site.home') }}" class="link text-white">Home</a>
+                    <a href="{{ route('site.majors') }}" class="link text-white">Majors</a>
+                    <a href="{{ route('site.doctors') }}" class="link text-white">Doctors</a>
+                    <a href="{{ route('site.login.show') }}" class="link text-white">Login</a>
+                    <a href="{{ route('site.register.show') }}" class="link text-white">Register</a>
+                    <a href="{{ route('site.contact.show') }}" class="link text-white">Contact</a>
                 </div>
             </div>
         </div>
@@ -29,6 +29,6 @@
         integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @stack('home-js')
-</body>
+    </body>
 
-</html>
+    </html>

@@ -12,6 +12,9 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
+                        @include('site.inc.success')
+                    </div>
                     <div class="col-12">
                         <div class="card">
                             <form method="POST" action="{{route('admin.majors.store')}}" enctype="multipart/form-data">

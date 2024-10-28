@@ -40,7 +40,7 @@ class DoctorController extends Controller
             $data['image'] = 'storage/' . $filename;
         }
         Doctor::create($data);
-        return redirect()->route('admin.doctors.index');
+        return redirect()->route('admin.doctors.index')->with('success', "Doctor has been created successfully");
     }
 
     /**
@@ -78,7 +78,7 @@ class DoctorController extends Controller
             $data['image'] = 'storage/' . $filename;
         }
         $doctor->update($data);
-        return redirect()->route('admin.doctors.index');
+        return redirect()->route('admin.doctors.index')->with('success', "Doctor has been updated successfully");
     }
 
     /**
@@ -91,6 +91,6 @@ class DoctorController extends Controller
             unlink(public_path($image->doctor_image));
         }
         $doctor->delete();
-        return redirect()->route('admin.doctors.index');
+        return redirect()->route('admin.doctors.index')->with('success', "Doctor has been deleted successfully");
     }
 }

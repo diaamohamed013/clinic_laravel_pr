@@ -16,6 +16,9 @@
                     Add Major
                 </a>
                 <div class="row">
+                    <div class="col-md-12">
+                        @include('site.inc.success')
+                    </div>
                     <div class="col-12">
                         <table class="table table-striped">
                             <thead>
@@ -32,7 +35,9 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $major->title }}</td>
                                         <td>
-                                            <img class="profile-user-img img-fluid img-circle" src="{{ FileHelper::get_file_url($major->image) }}" title="{{$major->title}}">
+                                            <img class="profile-user-img img-fluid img-circle"
+                                                src="{{ FileHelper::get_file_url($major->image) }}"
+                                                title="{{ $major->title }}">
                                         </td>
                                         <td>
                                             <div class="d-flex" style="gap: 10px;">
@@ -40,7 +45,8 @@
                                                     class="btn btn-secondary">
                                                     Edit
                                                 </a>
-                                                <form  action="{{ route('admin.majors.destroy', $major->id) }}" method="POST">
+                                                <form action="{{ route('admin.majors.destroy', $major->id) }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit">
