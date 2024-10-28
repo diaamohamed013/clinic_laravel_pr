@@ -30,10 +30,10 @@ Route::apiResource('doctors', DoctorController::class);
 Route::apiResource('messages', ContactController::class);
 Route::apiResource('users', UserController::class);
 
-// Route::middleware(['api'])->group(function() {
-//     Route::post('/login', [AuthController::class, 'login']);
-//     Route::post('/register', [AuthController::class, 'register']);
-//     Route::post('/logout', [AuthController::class, 'logout']);
-//     Route::get('/refresh', [AuthController::class, 'refresh']);
-//     Route::get('/getaccount', [AuthController::class, 'getaccount']);
-// });
+Route::middleware(['api'])->group(function() {
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/refresh', [AuthController::class, 'refresh']);
+    Route::get('/getaccount', [AuthController::class, 'getaccount']);
+});
